@@ -1,3 +1,0 @@
-import type { MoveGrade } from "./grade";
-export function accuracyAverage(items:MoveGrade[]){return items.length?`${Math.round(items.reduce((sum,item)=>sum+(item.accuracy??0),0)/items.length)}%`:"–";}
-export function summarizeGrades(items:MoveGrade[]){return {accuracy:accuracyAverage(items),white:accuracyAverage(items.filter(item=>item.side==="w")),black:accuracyAverage(items.filter(item=>item.side==="b")),opening:accuracyAverage(items.filter(item=>item.phase==="opening")),middlegame:accuracyAverage(items.filter(item=>item.phase==="middlegame")),endgame:accuracyAverage(items.filter(item=>item.phase==="endgame")),mistakes:items.filter(item=>item.kind==="mistake"||item.kind==="blunder").length,inaccuracies:items.filter(item=>item.kind==="inaccuracy").length};}
